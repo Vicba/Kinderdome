@@ -1,0 +1,50 @@
+@use 'constants';
+
+body{
+  height: 100vh;
+  overflow: hidden;
+  @include constants.background();
+  font-family: constants.$default-font;
+}
+nav {
+  @include constants.nav-bar();
+}
+
+#emergencies {
+  display: flex;
+  flex-direction: column;
+
+  .emergency {
+    @include constants.rounded-div(lightgray, 0.5rem 1rem 0.5rem 1rem, 1rem);
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 3rem;
+
+    img {
+      max-height: 100%;
+      width: 3rem;
+      object-fit: cover;
+      border-radius: 0.2rem;
+    }
+
+    h2{
+      width: 10rem;
+    }
+
+    .error-message{
+      margin: auto;
+      width: 10rem;
+      text-align: center;
+    }
+
+    .emergency-description {
+      width: 20rem;
+    }
+
+    .time{
+      width: 5rem ;
+    }
+  }
+}

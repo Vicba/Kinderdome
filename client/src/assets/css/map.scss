@@ -1,0 +1,32 @@
+@use "constants";
+
+body {
+  @include constants.background();
+  font-family: constants.$default-font;
+}
+
+nav {
+  @include constants.nav-bar();
+}
+
+main {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: space-around;
+  select {
+    @include constants.select-box();
+  }
+  #timeline {
+    width: 20vw;
+    @include constants.rounded-div(lightgray, 1rem, 0rem);
+    #line-chart-container {
+      height: 80vh;
+      overflow: scroll;
+    }
+  }
+  #map{
+    height: 100%;
+    width: 75vw;
+  }
+}
+

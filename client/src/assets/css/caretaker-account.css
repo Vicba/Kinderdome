@@ -1,0 +1,107 @@
+@import url("https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap");
+body {
+  height: 100vh;
+  overflow: hidden;
+  background-color: #ffffff;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='12' viewBox='0 0 20 12'%3E%3Cg fill-rule='evenodd'%3E%3Cg id='charlie-brown' fill='%23afafaf' fill-opacity='0.38'%3E%3Cpath d='M9.8 12L0 2.2V.8l10 10 10-10v1.4L10.2 12h-.4zm-4 0L0 6.2V4.8L7.2 12H5.8zm8.4 0L20 6.2V4.8L12.8 12h1.4zM9.8 0l.2.2.2-.2h-.4zm-4 0L10 4.2 14.2 0h-1.4L10 2.8 7.2 0H5.8z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  font-family: "Bree Serif", sans-serif;
+}
+
+nav {
+  height: 8vh;
+  width: 100%;
+  font-family: "Bree Serif", sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #ffffff;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='12' viewBox='0 0 20 12'%3E%3Cg fill-rule='evenodd'%3E%3Cg id='charlie-brown' fill='%23afafaf' fill-opacity='0.38'%3E%3Cpath d='M9.8 12L0 2.2V.8l10 10 10-10v1.4L10.2 12h-.4zm-4 0L0 6.2V4.8L7.2 12H5.8zm8.4 0L20 6.2V4.8L12.8 12h1.4zM9.8 0l.2.2.2-.2h-.4zm-4 0L10 4.2 14.2 0h-1.4L10 2.8 7.2 0H5.8z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+nav h1 {
+  color: black;
+  margin-left: 1rem;
+  font-size: 3rem;
+}
+nav a {
+  color: inherit;
+}
+nav div {
+  display: flex;
+  align-items: center;
+}
+nav div .currently-selected {
+  text-decoration: underline;
+  color: #4B4E6D;
+}
+nav div .material-symbols-outlined {
+  font-size: 2.5rem;
+}
+nav div span {
+  margin: 0 1rem 0 1rem;
+  color: black;
+}
+nav div span:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+main {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  grid-template-rows: 25vh 50vh;
+  grid-template-areas: "basic-info schedule" "special-info schedule";
+}
+main h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+main h3 {
+  font-size: 1.25rem;
+}
+main .information-panel {
+  border-radius: 1rem;
+  padding: 1rem;
+  margin: 1rem;
+  background-color: lightgray;
+}
+main div {
+  border-radius: 1rem;
+  padding: 1rem;
+  margin: 0;
+  background-color: inherit;
+}
+main #basic-info {
+  grid-area: basic-info;
+  display: flex;
+}
+main #basic-info div {
+  border-radius: 1rem;
+  padding: 1rem;
+  margin: 0 0 0 1rem;
+  background-color: gray;
+  width: 25%;
+}
+main #basic-info img {
+  max-width: 100%;
+  max-height: 100%;
+  border-radius: 1rem;
+}
+main #productivity-info {
+  grid-area: special-info;
+}
+main #productivity-info p {
+  margin-bottom: 0.5rem;
+}
+main #productivity-info img {
+  max-height: 90%;
+  border-radius: 0.5rem;
+}
+main #schedule {
+  grid-area: schedule;
+  overflow: scroll;
+}
+main #schedule img {
+  border-radius: 0.5rem;
+}
+
+/*# sourceMappingURL=caretaker-account.css.map */

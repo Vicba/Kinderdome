@@ -1,0 +1,92 @@
+table child {
+  childID integer [not null,PK]
+  name varchar  [not null]
+  dob datetime  [not null]
+  childcareCenterID int [ref: > childcareCenter.childcareCenterID]
+}
+
+table childcareCenter {
+  childcareCenterID integer [PK]
+  childcareCenterName varchar [not null]
+  childLimit integer [not null]
+}
+
+table parent {
+  parentID integer [PK]
+  name varchar [not null]
+  year int [not null]
+}
+
+table family {
+  childID int [ref: > child.childID]
+  parentID int [ref: > parent.parentID]
+}
+
+table caretaker {
+  caretakerID integer [PK]
+  salary integer
+  name varchar
+  childcareCenterID int [ref: > childcareCenter.childcareCenterID]
+  shiftID int [ref: > shift.shiftID]
+  
+}
+
+table eventtypes {
+  typeID int [PK]
+  name varchar 
+}
+
+
+table event{
+  eventID integer [PK]
+  dateAndTime datetime
+  childID int [ref: > child.childID]
+  longitude float
+  latitude float
+  bodytemp  float
+  hearthrate int
+  status string
+  typeID int [ref: > eventtypes.typeID]
+  description varchar
+    Indexes {
+    (dateAndTime, childID) [unique]
+  }
+}
+
+table eating{
+  eventID int [ref: - event.eventID]
+  nutritionalValue int
+}
+
+table sleeping{
+  eventID int [ref: - event.eventID]
+  depth int
+}
+
+table firstWord{
+  eventID int [ref: - event.eventID]
+  wordId int [ref: - word.wordID]
+}
+
+table word{
+  wordID int [PK]
+  word varchar
+}
+
+table emergencies{
+  eventID integer [ref: < event.eventID]
+  statusID integer [ref: > emergencystatus.statusID]
+}
+
+table emergencystatus{
+  statusID integer [PK]
+  statusName varchar
+}
+
+table shift{
+  shiftID integer [pk]
+  duration integer
+  date datetime
+  startTime integer
+  endTime integer
+}

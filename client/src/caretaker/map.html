@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Mars 16 caretaker-map</title>
+  <meta name="author" content="KinderDome"/>
+  <link rel="stylesheet" href="../assets/css/reset.css">
+  <link rel="stylesheet" href="../assets/css/map.css">
+  <script type="module" src="../assets/js/map-pages.js"></script>
+  <script src="../assets/js/util/api.js"></script>
+  <script src="../assets/js/util/helper.js"></script>
+  <script src="../assets/js/util/charts.js"></script>
+  <script src="../assets/js/util/timelineChart.js"></script>
+  <script src="../assets/js/util/maps.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,700,1,0"/>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/ol@v7.1.0/dist/ol.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ol@v7.1.0/ol.css">
+
+  <script src="https://cdn.jsdelivr.net/npm/sockjs-client@1.5.2/dist/sockjs.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vertx/3.9.4/vertx-eventbus.min.js"></script>
+
+</head>
+<body id="caretaker-map-page">
+<nav>
+  <h1>Map</h1>
+  <div>
+    <a href="map.html"><span class="material-symbols-outlined currently-selected">map</span></a>
+    <a href="call.html"><span class="material-symbols-outlined">video_call</span></a>
+    <a href="emergencies.html"><span class="material-symbols-outlined">notifications</span></a>
+    <a href="children-overview.html"><span class="material-symbols-outlined">groups</span></a>
+    <a href="account.html"><span class="material-symbols-outlined">manage_accounts</span></a>
+  </div>
+</nav>
+<main>
+  <div>
+    <label for="select"></label>
+    <select name="child" id="select">
+
+    </select>
+    <div id="timeline">
+      <h3>Todays timeline</h3>
+      <div id="line-chart-container">
+        <div>
+          <canvas class="timeline-chart"></canvas>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="map-container">
+    <div id="map">
+
+    </div>
+  </div>
+</main>
+</body>
+</html>

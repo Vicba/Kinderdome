@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mars 16 caretaker-account</title>
+    <meta name="author" content="Kinderdome"/>
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,700,1,0"/>
+    <link rel="stylesheet" href="../assets/css/reset.css">
+    <link rel="stylesheet" href="../assets/css/caretaker-account.css">
+    <script src="../assets/js/util/api.js"></script>
+    <script src="../assets/js/util/helper.js"></script>
+    <script type="module" src="../assets/js/caretaker/caretaker-account.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/sockjs-client@1.5.2/dist/sockjs.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vertx/3.9.4/vertx-eventbus.min.js"></script>
+</head>
+<body id="caretaker-account">
+<nav>
+    <h1>Account</h1>
+    <div>
+        <a href="map.html"><span class="material-symbols-outlined">map</span></a>
+        <a href="call.html"><span class="material-symbols-outlined">video_call</span></a>
+        <a href="emergencies.html"><span class="material-symbols-outlined">notifications</span></a>
+        <a href="children-overview.html"><span class="material-symbols-outlined">groups</span></a>
+        <a href="account.html"><span class="material-symbols-outlined currently-selected">manage_accounts</span></a>
+    </div>
+</nav>
+<main>
+    <div id="basic-info" class="information-panel">
+        <img src="../assets/images/children/caretaker1.jpg" alt="">
+        <div>
+            <h2 id="caretakerName">Caretaker name</h2>
+            <p id="extra-info">extra info</p>
+        </div>
+    </div>
+    <div id="productivity-info" class="information-panel">
+        <h2>Productivity</h2>
+        <img src="../assets/images/caretaker-productivity.jpg" alt="Placeholder image where the caretaker's productivity evaluation would go">
+    </div>
+    <div id="schedule" class="information-panel">
+        <h2>Schedule</h2>
+        <img src="../assets/images/caretaker-schedule.png" alt="Placeholder image where the caretaker's schedule would go.">
+    </div>
+</main>
+</body>
+</html>

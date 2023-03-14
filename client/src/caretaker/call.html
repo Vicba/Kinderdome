@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mars 16 calling</title>
+    <meta name="author" content="KinderDome"/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,700,1,0"/>
+    <script src="https://cdn.jsdelivr.net/npm/sockjs-client@1.5.2/dist/sockjs.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vertx/3.9.4/vertx-eventbus.min.js"></script>
+    <link rel="stylesheet" href="../assets/css/reset.css">
+    <link rel="stylesheet" href="../assets/css/call.css">
+    <script src="../assets/js/call.js"></script>
+    <script defer src="../assets/js/caretaker/chat.js"></script>
+    <script src="../assets/js/util/helper.js"></script>
+    <script src="../assets/js/util/api.js"></script>
+    <script src="../assets/js/util/eb.js"></script>
+</head>
+<body id="caretaker-comm-page">
+<nav>
+    <h1>calling</h1>
+    <div>
+        <a href="map.html"><span class="material-symbols-outlined">map</span></a>
+        <a href="call.html"><span class="material-symbols-outlined currently-selected currently-selected">video_call</span></a>
+        <a href="emergencies.html"><span class="material-symbols-outlined">notifications</span></a>
+        <a href="children-overview.html"><span class="material-symbols-outlined">groups</span></a>
+        <a href="account.html"><span class="material-symbols-outlined">manage_accounts</span></a>
+    </div>
+</nav>
+<main>
+    <div id="call-box">
+        <div id="loading-gif">
+            <img class="gif" src="../assets/images/loading-loading-forever.gif" alt="">
+        </div>
+        <div id="video-player-other">
+            <img class="gif hidden" src="../assets/images/wavingParent.gif" alt="">
+        </div>
+        <div id="video-player-self">
+            <video id="player" autoplay></video>
+        </div>
+        <div id="call-functions">
+            <span id="enable-cam" class="material-symbols-outlined cam-button">videocam_off</span>
+            <span id="disable-cam" class="material-symbols-outlined hidden cam-button">videocam</span>
+            <span id="mic-off" class="material-symbols-outlined mic-button">mic</span>
+            <span id="mic-on" class="material-symbols-outlined hidden mic-button">mic_off</span>
+            <span id="call-end" class="material-symbols-outlined hidden call-button">call_end</span>
+            <span id="call-start" class="material-symbols-outlined call-button">call</span>
+        </div>
+    </div>
+    <div id="chat-box">
+        <label for="select"></label>
+        <select name="child" id="select">
+
+        </select>
+        <div id="chat" class="">
+            <div id="messages">
+            </div>
+            <div id="send-message">
+                <input id="chat-field" type="text" placeholder="Send a message to the caretaker">
+                <label for="chat-field"></label>
+                <span class="material-symbols-outlined" id="send">send</span>
+            </div>
+        </div>
+    </div>
+</main>
+
+</body>
+</html>

@@ -1,0 +1,52 @@
+@use "constants";
+
+body {
+  height: 100vh;
+  overflow: hidden;
+  @include constants.background();
+  font-family: constants.$default-font;
+}
+
+h1 {
+  text-align: center;
+  font-size: 5rem;
+  margin: 2rem;
+}
+
+h2 {
+  text-align: center;
+  font-size: 3rem;
+  margin: 1rem;
+}
+
+#main-img {
+  display: block;
+  height: 20rem;
+  margin: 1rem auto;
+  border-radius: 1rem;
+}
+#roles {
+  display: flex;
+  justify-content: center;
+  gap: 10%;
+  div {
+    @include constants.rounded-div(lightgray, 0,1rem 0 1rem 0);
+    max-width: 20%;
+    img {
+      height: 16rem;
+      border-radius: 1rem;
+      width: 20rem;
+      object-fit: cover;
+    }
+    h2{
+      text-align: center;
+    }
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+  }
+  &:hover {
+    cursor: pointer;
+  }
+}

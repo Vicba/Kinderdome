@@ -1,0 +1,159 @@
+@import url("https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap");
+body {
+  background-color: #ffffff;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='12' viewBox='0 0 20 12'%3E%3Cg fill-rule='evenodd'%3E%3Cg id='charlie-brown' fill='%23afafaf' fill-opacity='0.38'%3E%3Cpath d='M9.8 12L0 2.2V.8l10 10 10-10v1.4L10.2 12h-.4zm-4 0L0 6.2V4.8L7.2 12H5.8zm8.4 0L20 6.2V4.8L12.8 12h1.4zM9.8 0l.2.2.2-.2h-.4zm-4 0L10 4.2 14.2 0h-1.4L10 2.8 7.2 0H5.8z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  font-family: "Bree Serif", sans-serif;
+  max-height: 100vh;
+}
+body .error-message {
+  color: red;
+  text-align: center;
+  font-size: 2rem;
+}
+body .error-message.hidden {
+  display: none;
+}
+
+header {
+  position: sticky;
+  top: 0;
+}
+header nav {
+  height: 8vh;
+  width: 100%;
+  font-family: "Bree Serif", sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #ffffff;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='12' viewBox='0 0 20 12'%3E%3Cg fill-rule='evenodd'%3E%3Cg id='charlie-brown' fill='%23afafaf' fill-opacity='0.38'%3E%3Cpath d='M9.8 12L0 2.2V.8l10 10 10-10v1.4L10.2 12h-.4zm-4 0L0 6.2V4.8L7.2 12H5.8zm8.4 0L20 6.2V4.8L12.8 12h1.4zM9.8 0l.2.2.2-.2h-.4zm-4 0L10 4.2 14.2 0h-1.4L10 2.8 7.2 0H5.8z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+header nav h1 {
+  color: black;
+  margin-left: 1rem;
+  font-size: 3rem;
+}
+header nav a {
+  color: inherit;
+}
+header nav div {
+  display: flex;
+  align-items: center;
+}
+header nav div .currently-selected {
+  text-decoration: underline;
+  color: #4B4E6D;
+}
+header nav div .material-symbols-outlined {
+  font-size: 2.5rem;
+}
+header nav div span {
+  margin: 0 1rem 0 1rem;
+  color: black;
+}
+header nav div span:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+header nav input {
+  border-radius: 0.4rem;
+  height: 2rem;
+  border: lightgray solid;
+  background-color: lightgray;
+  margin-left: 2rem;
+  width: 2.6rem;
+  background-image: url("../images/search.png");
+  background-repeat: no-repeat;
+  background-size: 1.8rem;
+  background-position: 2% 50%;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  transition: width 0.5s ease;
+}
+header nav input:hover {
+  background-color: white;
+}
+header nav input:focus {
+  background-color: white;
+  outline: none;
+  width: 15rem;
+}
+
+#children {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5%;
+  justify-content: center;
+}
+#children div {
+  border-radius: 1rem;
+  padding: 0;
+  margin: 1rem 0 1rem 0;
+  background-color: lightgray;
+  max-width: 20%;
+  width: 15%;
+}
+#children div img {
+  border-radius: 1rem;
+  width: 100%;
+  height: 17rem;
+  object-fit: cover;
+}
+#children div h2 {
+  border: none;
+  text-align: center;
+  padding-bottom: 0.5rem;
+}
+#children div a {
+  color: inherit;
+  text-decoration: none;
+}
+#children:hover {
+  cursor: pointer;
+}
+
+.overlay {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.25);
+  display: none;
+}
+
+#popup {
+  border-radius: 1rem;
+  padding: 2rem;
+  margin: 12% auto;
+  background-color: lightgray;
+  font-size: 3rem;
+  text-align: center;
+  width: 35%;
+}
+#popup .dialog-option {
+  border-radius: 100%;
+  padding: 0.75rem;
+  margin: 2rem 2rem 0 2rem;
+  font-size: 2rem;
+}
+#popup .dialog-option :hover {
+  cursor: pointer;
+}
+#popup #confirm {
+  background-color: green;
+}
+#popup #cancel {
+  background-color: red;
+}
+
+.hide {
+  display: none;
+}
+
+.show-popup {
+  display: block;
+}
+
+/*# sourceMappingURL=children-overview.css.map */

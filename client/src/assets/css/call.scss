@@ -1,0 +1,160 @@
+@use 'constants';
+
+body {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  @include constants.background();
+  font-family: constants.$default-font;
+}
+
+nav {
+  @include constants.nav-bar();
+}
+
+main {
+  max-height: 90vh;
+  display: flex;
+  margin-top: 1rem;
+  justify-content: space-around;
+}
+
+#call-box {
+  width: 75vw;
+  @include constants.rounded-div(lightgray, 0, 0);
+  display: grid;
+  grid-template-columns: 33% 34% 33%;
+  grid-template-rows: 50% 50%;
+
+  #video-player-self {
+    margin-top: auto;
+    overflow: hidden;
+    video {
+      border-radius: 0 0 0 1rem;
+      width: 100%;
+    }
+    grid-area: 2/1/2/1;
+  }
+  #loading-gif {
+    grid-area: 1/2/1/2;
+    max-width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    img {
+      max-width: 5rem;
+      max-height: 5rem;
+      transform: translate(0 , 50%);
+    }
+
+  }
+  div .hidden {
+    @include constants.hidden();
+  }
+  #video-player-other {
+    grid-area: 1/1/4/4;
+    overflow: hidden;
+    img {
+      max-width: 100%;
+      height: 100%;
+      border-radius: 1rem;
+    }
+  }
+  #call-functions {
+    grid-area: 2/2/2/2;
+
+    display: flex;
+    align-items: end;
+    justify-content: center;
+    padding-bottom: 1rem;
+    span {
+      color: white;
+      background-color: dimgray;
+      padding: 0.8rem;
+      &:hover {
+        cursor: pointer;
+      }
+      &.cam-button {
+        border-radius: 0.5rem 0 0 0.5rem;
+        border-right: solid #3f4140 0.1rem;
+      }
+      &.call-button {
+        border-radius: 0 0.5rem 0.5rem 0;
+      }
+    }
+    #call-end {
+      background-color: red;
+    }
+    #call-start {
+      background-color: limegreen;
+    }
+  }
+}
+
+#chat-box {
+  width: 20vw;
+  #chat {
+    display: flex;
+    justify-content: end;
+    flex-direction: column;
+    height: 80vh;
+    @include constants.rounded-div(lightgray, 1rem, 0);
+    #messages {
+      overflow: scroll;
+      display: flex;
+      flex-direction: column-reverse;
+      .left {
+        @include constants.rounded-div(gray, 0.5rem, 0);
+        align-self: flex-start;
+      }
+      .right {
+        @include constants.rounded-div(lightblue, 0.5rem, 0);
+        align-self: flex-end;
+      }
+      .message {
+        max-width: 80%;
+        word-wrap: break-word;
+        margin-bottom: 1rem;
+      }
+    }
+    &.unavailable {
+      #send {
+        color: grey;
+        &:hover {
+          cursor: not-allowed;
+        }
+      }
+      input {
+        color: red;
+      }
+      //background-color: rgba(150, 0, 0, 10);
+    }
+    #send-message {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      span:hover {
+        cursor: pointer;
+      }
+      input {
+        border: none;
+        background-color: white;
+        border-radius: 0.4rem;
+        height: 2rem;
+        width: 85%;
+        padding-left: 0.5rem;
+        &:focus {
+          background-color: white;
+          outline: none;
+        }
+      }
+    }
+  }
+  select {
+    @include constants.select-box();
+  }
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+}
+

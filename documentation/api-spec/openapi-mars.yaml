@@ -1,0 +1,880 @@
+openapi: 3.0.3
+info:
+  version: "1"
+  title: MARS project, KinderDome
+  description: |-
+    This is the KinderDome OpenApi spec
+servers:
+  - url: https://project-ii.ti.howest.be/mars-16
+    description: 'Public API'
+  - url: http://localhost:8080/
+    description: 'Local API'
+  
+paths:
+  /api/children:
+    get:
+      operationId: getAllChildren
+      summary: Fetch all children
+      description: Retrieve all children
+      responses:
+        '200':
+          description: "succesfull operation"
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/children'
+        '400':
+          description: "this ID does not exists"
+      tags:
+        - Child
+        
+  /api/child/{childID}: 
+    get:
+      operationId: getChild
+      summary: Fetch a child with its childID.
+      description: Retrieve a child with its childID.
+      parameters:
+        - name: childID
+          in: path
+          description: The ID of the child you are looking for.
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: "succesfull operation"
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/child'
+        '400':
+          description: "this ID does not exists"
+      tags:
+        - Child   
+
+  /api/child/{childID}/history:
+    get:
+      operationId: getChildHistory
+      summary: Fetch the history of the child with its childID.
+      description: Retrieve child history with childID.
+      parameters:
+        - name: childID
+          in: path
+          description: The ID of the child you are looking for.
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses: 
+        '200':
+          description: "succesfull operation"
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/childhistory'
+        '400':
+          description: "this ID does not exists"
+      tags:
+        - Child
+        
+  /api/event/{childID}:
+    post:
+      operationId: addEvent
+      summary: Add an event to a specific child.
+      description: Add an event
+      parameters:
+        - name: childID
+          in: path
+          description: The ID of the child you want to add an event to.
+          required: true
+          schema:
+            type: integer
+            format: int64
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/addEvent"
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                type: string
+                example: created succesfully
+          
+      tags:
+        - Event
+        
+  /api/event/{eventID}: 
+    get:
+      operationId: getEvent
+      summary: Fetch an event with an eventID.
+      description: Retrieve an event with an eventID.
+      parameters:
+        - name: eventID
+          in: path
+          description: The ID of the event you are looking for.
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: "succesfull operation"
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/event'
+        '400':
+          description: "this ID does not exists"
+      tags:
+        - Event
+          
+  /api/parent/{parentID}:
+    get:
+      operationId: getParent
+      summary: Fetch the info of a parent with its parentID.
+      description: Retrieve parent info with parentID.
+      parameters:
+        - name: parentID
+          in: path
+          description: The ID of the parent you are looking for.
+          required: true
+          schema: 
+            type: integer
+            format: int64
+      responses: 
+          '200':
+            description: "succesfull operation"
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/parent'
+          '400':
+            description: "this ID does not exists"
+      tags:
+        - Parent
+        
+  /api/parent/{parentID}/emergencies:
+    get:
+      operationId: getEmergenciesForParent
+      summary: Fetch all the emergencies of the children from a parent.
+      description: Retrieve emergencies of the children from a parent.
+      parameters:
+        - name: parentID
+          in: path
+          description: The ID of the parent you are looking for.
+          required: true
+          schema: 
+            type: integer
+            format: int64
+      responses: 
+          '200':
+            description: "succesfull operation"
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/parentEmergency'
+          '400':
+            description: "this ID does not exists"
+      tags:
+        - Parent
+    
+  /api/parent/{parentID}/childList:
+    get:
+      operationId: getParentsChildren
+      summary: Fetch the children of a parent.
+      description: Retrieve all the children of a parent.
+      parameters:
+        - name: parentID
+          in: path
+          description: The ID of the parent you are looking for.
+          required: true
+          schema: 
+            type: integer
+            format: int64
+      responses: 
+          '200':
+            description: "succesfull operation"
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/childList'
+          '400':
+            description: "this ID does not exists"
+      tags:
+        - Parent
+        
+  /api/parent/{parentID}/{childID}:
+    post:
+      operationId: addChildToParent
+      summary: Add a child to a specific parent.
+      description: Add a child to a specific parent.
+      parameters:
+        - name: parentID
+          in: path
+          description: The ID of the parent you are looking for.
+          required: true
+          schema: 
+            type: integer
+            format: int64
+        - name: childID
+          in: path
+          description: The ID of the child you are looking for.
+          required: true
+          schema: 
+            type: integer
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                type: string
+                example: created succesfully
+        '400':
+          description: "this ID does not exists"
+      tags:
+        - Parent
+        
+  /api/childcareCenters:
+    get:
+      operationId: getAllChildcareCenters
+      summary: Fetch all childcare centers that use the software.
+      description: Retrieve all childcare centers.
+      responses: 
+          '200':
+            description: "succesfull operation"
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/childcareCenters'
+          '400':
+            description: "this ID does not exists"
+      tags:
+        - Childcare Center
+        
+  /api/childcareCenter/add:
+    post:
+      operationId: addChildcareCenter
+      summary: Add a childcare center.
+      description: Add a childcare center
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/childcareCenter"
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                type: string
+                example: created succesfully
+          
+      tags:
+        - Childcare Center
+        
+  /api/childcareCenter/{childcareCenterID}:
+    get:
+      operationId: getChildcareCenter
+      summary: Fetch a childcare center that uses the software.
+      description: Retrieve a childcare center.
+      parameters:
+        - name: childcareCenterID
+          in: path
+          description: The ID of the childcare center you are looking for.
+          required: true
+          schema: 
+            type: integer
+            format: int64
+      responses: 
+          '200':
+            description: "succesfull operation"
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/childcareCenter'
+          '400':
+            description: "this ID does not exists"
+      tags:
+        - Childcare Center
+  
+  /api/childcareCenter/{childcareCenterID}/child/{childID}/enroll:
+    put:
+      operationId: enrollChildIntoChildcareCenter
+      summary: Enroll a child into a childcareCenter.
+      description: Enroll a child into a childcareCenter.
+      parameters:
+        - name: childcareCenterID
+          in: path
+          description: The ID of the childcare center you are looking for.
+          required: true
+          schema: 
+            type: integer
+            format: int64
+        - name: childID
+          in: path
+          description: The ID of the child you want to enroll into a childcareCenter.
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses: 
+          '200':
+            description: "succesfull operation"
+            content:
+              application/json:
+                schema:
+                  type: string
+                  example: "enrolled succesfully"
+          '400':
+            description: "an error occured"
+            content:
+              application/json:
+                schema:
+                  type: string
+                  example: "Child could not be enrolled to childcare center, because it's already enrolled"
+      tags:
+        - Childcare Center
+
+  /api/childcareCenter/{childcareCenterID}/child/{childID}/disenroll:
+    put:
+      operationId: disenrollChildFromChildcareCenter
+      summary: Disenroll a child from a childcareCenter.
+      description: Disenroll a child from a childcareCenter.
+      parameters:
+        - name: childcareCenterID
+          in: path
+          description: The ID of the childcare center you are looking for.
+          required: true
+          schema: 
+            type: integer
+            format: int64
+        - name: childID
+          in: path
+          description: The ID of the child you want to disenroll from the childcareCenter.
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses: 
+          '200':
+            description: "succesfull operation"
+            content:
+              application/json:
+                schema:
+                  type: string
+                  example: "disenrolled succesfully"
+          '400':
+            description: "an error occured"
+            content:
+              application/json:
+                schema:
+                  type: string
+                  example: "Could not remove child because there is no childID or childcareCenter matching to disenroll"
+      tags:
+        - Childcare Center
+        
+  /api/childcareCenter/{childcareCenterID}/childList:
+    get:
+      operationId: getChildList
+      summary: Fetch the list of children of a childcare center.
+      description: Retrieve the list of children from a childcare center.
+      parameters:
+        - name: childcareCenterID
+          in: path
+          description: The ID of the childcare center you are looking for.
+          required: true
+          schema: 
+            type: integer
+            format: int64
+      responses: 
+        '200':
+          description: "succesfull operation"
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/childList'
+        '400':
+          description: "this ID does not exists"
+      tags:
+        - Childcare Center
+        
+  /api/childcareCenter/{childcareCenterID}/parentList:
+    get:
+      operationId: getParentList
+      summary: Fetch the list of parents of a childcare center.
+      description: Retrieve the list of parents from a childcare center.
+      parameters:
+        - name: childcareCenterID
+          in: path
+          description: The ID of the childcare center you are looking for.
+          required: true
+          schema: 
+            type: integer
+            format: int64
+      responses: 
+        '200':
+          description: "succesfull operation"
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/parentList'
+        '400':
+          description: "this ID does not exists"
+      tags:
+        - Childcare Center
+          
+  /api/childcareCenter/{childcareCenterID}/caretakerList:
+    get:
+      operationId: getCaretakerList
+      summary: Fetch the list of caretakers of a childcare center.
+      description: Retrieve the list of caretakers from a childcare center.
+      parameters:
+        - name: childcareCenterID
+          in: path
+          description: The ID of the childcare center you are looking for.
+          required: true
+          schema: 
+            type: integer
+            format: int64
+      responses: 
+        '200':
+          description: "succesfull operation"
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/centerCaretakerList'
+        '400':
+          description: "this ID does not exists"
+      tags:
+        - Childcare Center
+        
+  /api/childcareCenter/{childcareCenterID}/caretaker/{caretakerID}:
+     get:
+      operationId: getCaretaker
+      summary: Fetch a caretaker with a childcareCenterID caretakerID.
+      description: Retrieve a caretaker of a specific childcare center.
+      parameters:
+        - name: childcareCenterID
+          in: path
+          description: The ID of the childcare center you are looking for.
+          required: true
+          schema:
+            type: integer
+            format: int64
+        - name: caretakerID
+          in: path
+          description: The ID of the caretaker you are looking for.
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: "succesfull operation"
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/caretaker'
+        '400':
+          description: "this ID does not exists"
+      tags:
+        - Childcare Center
+        
+  /api/childcareCenter/{childcareCenterID}/emergencies:
+    get:
+      operationId: getEmergencies
+      summary: Fetch all emergencies in a childcare center.
+      description: Retrieve a caretaker of a specific childcare center.
+      parameters:
+        - name: childcareCenterID
+          in: path
+          description: The ID of the childcare center you are looking for.
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: "succesfull operation"
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/emergencies'
+        '400':
+          description: "this ID does not exists"
+      tags:
+        - Childcare Center
+        
+  /api/eventTypes:
+    get:
+      operationId: getEventTypes
+      summary: Fetch all event types.
+      description: Retrieve all event types.
+      responses:
+        '200':
+          description: "succesfull operation"
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/eventTypes'
+        '400':
+          description: "Error whilst getting all event types"
+      tags:
+        - Childcare Center
+        
+  /api/menu:
+    get:
+      operationId: getMenus
+      summary: Fetch all available menu's.
+      description: Retrieve all menus.
+      responses:
+        '200':
+          description: "succesfull operation"
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/weekMenus'
+        '400':
+          description: "Error whilst getting all menus"
+      tags:
+        - Menu
+  
+components:
+  schemas:
+    weekMenus:
+      type: object
+      properties:
+        week1:
+          $ref: '#/components/schemas/menu'
+        week2:
+          $ref: '#/components/schemas/announcedMenu'
+          
+    announcedMenu:
+      type: object
+      properties:
+        dateStartWeek:
+          type: string
+          format: date
+          example: "08-01-2023"
+        dateEndWeek:
+          type: string
+          format: date
+          example: "14-01-2023"
+        description:
+          type: string
+          example: "to be announced"
+          
+    menu:
+      type: object
+      properties:
+        dateStartWeek:
+          type: string
+          format: date
+          example: "01-01-2023"
+        dateEndWeek:
+          type: string
+          format: date
+          example: "07-01-2023"
+        weekdays:
+          $ref: '#/components/schemas/daysForMenu'
+          
+    daysForMenu:
+      type: object
+      properties:
+        monday:
+          $ref: '#/components/schemas/day'
+        tuesday:
+          $ref: '#/components/schemas/day'
+        wednesday:  
+          $ref: '#/components/schemas/day'
+        thursday:  
+          $ref: '#/components/schemas/day'
+        friday:  
+          $ref: '#/components/schemas/day'
+        saturday:  
+          $ref: '#/components/schemas/day'
+        sunday:  
+          $ref: '#/components/schemas/day'
+          
+    day:
+      type: object
+      properties: 
+        breakfast: 
+          type: object
+          properties:
+            drinks:
+              type: string
+              example: "chocolate milk"
+            meal:
+              type: string
+              example: "croissant"
+        lunch: 
+          type: object
+          properties:
+            drinks:
+              type: string
+              example: "water"
+            meal:
+              type: string
+              example: "pizza"
+        dinner: 
+          type: object
+          properties:
+            drinks:
+              type: string
+              example: "water"
+            meal:
+              type: string
+              example: "slice of bread"
+    
+    child:
+      type: object
+      properties:
+        childcareCenterID:
+          type: integer
+          example: 1      
+        childID:
+          type: integer
+          format: int64
+          example: 1
+        name:
+          type: string
+          example: "Alice"
+        birthdate: 
+          type: string
+          format: date
+          
+    childhistory:
+      type: array
+      items: 
+        $ref: "#/components/schemas/event"
+
+    parent:
+      type: object
+      properties:
+        parentID:
+          type: integer
+          format: int64
+        name:
+          type: string
+          example: "Chantal"
+        birthyear:
+          type: integer
+          example: 2002
+                      
+    parentEmergency:
+      type: object
+      properties:
+        parentID:
+          type: integer
+          format: int64
+        name:
+          type: string
+          example: "Chantal"
+        emergencies:
+           $ref: '#/components/schemas/childrenEmergencies'
+        
+              
+    childrenEmergencies:
+      type: array
+      items:
+        oneOf:
+        - type: object
+          properties:
+              childID:
+                type: integer
+                example: 0
+              name:
+                type: string
+                example : "David"
+              description:
+                type: string
+                example: "David stole a knife"
+              status:
+                type: string
+                example: "resolved" 
+        - type: object
+          properties:
+            childID:
+              type: integer
+              example: 1
+            name:
+              type: string
+              example : "Pascal"
+            description:
+              type: string
+              example: "Pascal ate soap"
+            status:
+              type: string
+              example: "ongoing"
+          
+    childList:
+      type: array
+      items:
+        $ref: '#/components/schemas/child'
+         
+    parentList:
+      type: array
+      items:
+        $ref: '#/components/schemas/parent'
+    
+    centerCaretakerList:
+      type: array
+      items:
+        $ref: '#/components/schemas/caretaker'
+    
+    childcareCenters: 
+      type: array
+      items:
+        $ref: '#/components/schemas/childcareCenter'
+        
+    childcareCenter:
+      type: object
+      properties:
+        childcareCenterID: 
+          type: integer
+          format: int64
+        childcareCenterName:
+          type: string
+          example: "Kiddie Cloud"
+        childLimit:
+          type: integer
+          format: int64
+          example: 100
+          
+    caretaker:
+      type: object
+      properties:
+        caretakerID:
+          type: integer
+          format: int64
+        name: 
+         type: string
+         example: "Bob"
+        childcareCenter:
+          $ref: '#/components/schemas/childcareCenter'
+        salary:
+          type: integer
+          format: int64
+          example: 1500
+          
+    children:
+      type: array
+      items:
+        oneOf:
+          - type: object
+            properties:
+              childID:
+                type: integer
+                example: 0
+              name:
+                type: string
+                example : "Patrick"
+          - type: object
+            properties:
+              childID:
+                type: integer
+                example: 1
+              name:
+                type: string
+                example : "Spongebob"
+                
+    event:
+      type: object
+      properties:
+        eventID:
+          type: integer
+          example: 1
+        description:
+          type: string
+          example: "Robin went to the toilet"
+        datetime:
+          type: string
+          format: date-time
+        location:
+          type: object
+          properties:
+            longitude:
+              type: integer
+              example: 69.9
+            latitude:
+              type: integer
+              example: 69.9
+        bodyTemp:
+          type: integer
+          example: 37
+        hearthRate:
+          type: integer
+          example: 80
+        eventType:
+          type: string
+          example: "Sleeping." 
+        depthScore:
+          type: integer
+          example: 1
+        word:
+          type: object
+          properties:
+            wordID:
+              type: integer
+              example: 1
+            word:
+              type: string
+              example: "Apple"
+          
+    addEvent:
+      type: object
+      properties:
+        childID: 
+          type: integer
+          example: 2
+        event:
+          $ref: '#/components/schemas/event'
+    
+    emergencies:
+      type: array
+      items:
+        $ref: '#/components/schemas/childEmergency'
+          
+    childEmergency:
+      type: object
+      properties:
+        childID:
+          type: integer
+          example: 1
+        name:
+          type: string
+          example: "David"
+        emergency:
+          type: string
+          example: "David stole a knife"
+        date:
+          type: string
+          format: date-time
+          
+    eventTypes:
+      type: array
+      items:
+        oneOf:
+        - type: string
+          example: "Generic"
+        - type: string
+          example: "Emergency"
+        - type: string
+          example: "SpokenWord"
+        - type: string
+          example: "Sleeping"    
+        - type: string
+          example: "Eating"
+          
+          
+          

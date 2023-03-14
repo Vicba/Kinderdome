@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mars 16 parent-emergencies</title>
+    <meta name="author" content="KinderDome"/>
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,700,1,0"/>
+    <link rel="stylesheet" href="../assets/css/reset.css">
+    <link rel="stylesheet" href="../assets/css/notifications.css">
+    <script src="../assets/js/main.js"></script>
+    <script src="../assets/js/util/api.js"></script>
+    <script src="../assets/js/util/helper.js"></script>
+    <script type="module" src="../assets/js/parent/emergency-loader.js"></script>
+    <script src="../assets/js/emergencies.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/sockjs-client@1.5.2/dist/sockjs.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vertx/3.9.4/vertx-eventbus.min.js"></script>
+</head>
+<body id="parent-emergencies">
+<nav>
+    <h1>Emergencies</h1>
+    <div>
+        <a href="menu.html"><span class="material-symbols-outlined">lunch_dining</span></a>
+        <a href="call.html"><span class="material-symbols-outlined">video_call</span></a>
+        <a href="map.html"><span class="material-symbols-outlined">map</span></a>
+        <a href="emergencies.html"><span
+                class="material-symbols-outlined currently-selected">notifications</span></a>
+        <a href="children-overview.html"><span class="material-symbols-outlined">groups</span></a>
+    </div>
+</nav>
+<main>
+    <div id="emergencies">
+    </div>
+    <template id="emergency-template">
+        <div class="emergency">
+            <img src="../assets/images/no-picture.png" alt="">
+            <h2></h2>
+            <p class="time"></p>
+            <p class="status"></p>
+            <p class="emergency-description">Description</p>
+            <button class="contact">contact</button>
+            <button>X</button>
+        </div>
+    </template>
+</main>
+</body>
+</html>

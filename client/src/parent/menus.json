@@ -1,0 +1,229 @@
+[
+  {
+    "dateStartWeek": "23/01/2023",
+    "dateEndWeek": "29/01/2023",
+    "days": [
+      {
+        "day": "Monday",
+        "breakfast": {
+          "drinks": "Chocolate milk",
+          "meal": "Croissants"
+        },
+        "lunch": {
+          "drinks": "Water",
+          "meal": "Grilled cheese sandwich with a side of carrot sticks and cherry tomatoes"
+        },
+        "dinner": {
+          "drinks": "Water",
+          "meal": "Baked chicken breasts with roasted vegetables and a small side salad"
+        }
+      },
+      {
+        "day": "Tuesday",
+        "breakfast": {
+          "drinks": "Milk",
+          "meal": "Sandwiches"
+        },
+        "lunch": {
+          "drinks": "Water",
+          "meal": "Turkey and cheese wrap with carrot sticks and hummus"
+        },
+        "dinner": {
+          "drinks": "Water",
+          "meal": "Spaghetti with marinara sauce and a side salad"
+        }
+      },
+      {
+        "day": "Wednesday",
+        "breakfast": {
+          "drinks": "Milk",
+          "meal": "Cereals"
+        },
+        "lunch": {
+          "drinks": "Water",
+          "meal": "Tuna salad on whole wheat bread with cherry tomatoes and cucumbers"
+        },
+        "dinner": {
+          "drinks": "Water",
+          "meal": "Slow cooker beef and vegetable stew"
+        }
+      },
+      {
+        "day": "Thursday",
+        "breakfast": {
+          "drinks": "Milk",
+          "meal": "Sandwiches"
+        },
+        "lunch": {
+          "drinks": "Water",
+          "meal": "Grilled chicken and spinach salad with a honey mustard dressing"
+        },
+        "dinner": {
+          "drinks": "Water",
+          "meal": "Baked salmon with roasted potatoes and steamed broccoli"
+        }
+      },
+      {
+        "day": "Friday",
+        "breakfast": {
+          "drinks": "Milk",
+          "meal": "Sandwiches"
+        },
+        "lunch": {
+          "drinks": "Water",
+          "meal": "Black bean and corn salsa with tortilla chips and a side of guacamole"
+        },
+        "dinner": {
+          "drinks": "Water",
+          "meal": "Grilled pork chops with roasted sweet potatoes and green beans"
+        }
+      },
+      {
+        "day": "Saturday",
+        "breakfast": {
+          "drinks": "Milk",
+          "meal": "Sandwiches"
+        },
+        "lunch": {
+          "drinks": "Water",
+          "meal": "Grilled cheese and tomato soup"
+        },
+        "dinner": {
+          "drinks": "Water",
+          "meal": "Beef stir fry with brown rice and vegetables"
+        }
+      },
+      {
+        "day": "Sunday",
+        "breakfast": {
+          "drinks": "Milk",
+          "meal": "Croissants"
+        },
+        "lunch": {
+          "drinks": "Water",
+          "meal": "Turkey and avocado club sandwich with sweet potato fries"
+        },
+        "dinner": {
+          "drinks": "Water",
+          "meal": "Slow cooker chicken and dumplings"
+        }
+      }
+    ]
+  },
+  {
+    "dateStartWeek": "30/01/2023",
+    "dateEndWeek": "05/02/2023",
+    "days": [
+      {
+        "day": "Monday",
+        "breakfast": {
+          "drinks": "Chocolate milk",
+          "meal": "Croissants"
+        },
+        "lunch": {
+          "drinks": "Water",
+          "meal": "Quinoa and black bean salad with avocado dressing"
+        },
+        "dinner": {
+          "drinks": "Water",
+          "meal": "Vegetable stir-fry with brown rice"
+        }
+      },
+      {
+        "day": "Tuesday",
+        "breakfast": {
+          "drinks": "Milk",
+          "meal": "Sandwiches"
+        },
+        "lunch": {
+          "drinks": "Water",
+          "meal": "Turkey and cheese wrap with lettuce and tomato"
+        },
+        "dinner": {
+          "drinks": "Water",
+          "meal": "Grilled chicken with roasted vegetables"
+        }
+      },
+      {
+        "day": "Wednesday",
+        "breakfast": {
+          "drinks": "Milk",
+          "meal": "Sandwiches"
+        },
+        "lunch": {
+          "drinks": "Water",
+          "meal": "Soup and sandwich combo"
+        },
+        "dinner": {
+          "drinks": "Water",
+          "meal": "Spaghetti with meatballs and a side salad"
+        }
+      },
+      {
+        "day": "Thursday",
+        "breakfast": {
+          "drinks": "Milk",
+          "meal": "Sandwiches"
+        },
+        "lunch": {
+          "drinks": "Water",
+          "meal": "Black bean and corn salad with a side of chips"
+        },
+        "dinner": {
+          "drinks": "Water",
+          "meal": "Grilled salmon with roasted potatoes"
+        }
+      },
+      {
+        "day": "Friday",
+        "breakfast": {
+          "drinks": "Milk",
+          "meal": "Sandwiches"
+        },
+        "lunch": {
+          "drinks": "Water",
+          "meal": "Tuna salad over mixed greens"
+        },
+        "dinner": {
+          "drinks": "Water",
+          "meal": "Baked chicken with roasted broccoli"
+        }
+      },
+      {
+        "day": "Saturday",
+        "breakfast": {
+          "drinks": "Milk",
+          "meal": "Sandwiches"
+        },
+        "lunch": {
+          "drinks": "Water",
+          "meal": "Grilled cheese and tomato soup"
+        },
+        "dinner": {
+          "drinks": "Water",
+          "meal": "Beef tacos with all the fixings"
+        }
+      },
+      {
+        "day": "Sunday",
+        "breakfast": {
+          "drinks": "Milk",
+          "meal": "Croissants"
+        },
+        "lunch": {
+          "drinks": "Water",
+          "meal": "Grilled chicken Caesar salad"
+        },
+        "dinner": {
+          "drinks": "Water",
+          "meal": "Slow cooker chili with cornbread"
+        }
+      }
+    ]
+  },
+  {
+    "dateStartWeek": "06/02/2023",
+    "dateEndWeek": "12/02/2023",
+    "description": "To be announced!"
+  }
+]

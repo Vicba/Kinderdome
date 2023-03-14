@@ -1,0 +1,212 @@
+@use 'constants';
+
+body {
+  height: 100vh;
+  overflow: hidden;
+  @include constants.background();
+  font-family: constants.$default-font;
+}
+
+nav {
+  @include constants.nav-bar();
+}
+
+main {
+  height: 90vh;
+  display: grid;
+  grid-template-columns: 50% 50%;
+  grid-template-rows: 25% 75%;
+  grid-template-areas:
+    "basic-info timeline"
+    "special-info timeline";
+
+  .small-info {
+    @include constants.rounded-div(gray, 1rem, 1rem 0 0 0)
+  }
+
+  .information-panel {
+    @include constants.rounded-div(lightgray, 1rem, 1rem);
+  }
+
+  .toggle-panels {
+    height: 100%;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 47.5% 47.5% 5%;
+
+    canvas {
+      height: 100%;
+      width: 50%;
+    }
+
+    &.hidden {
+      @include constants.hidden();
+    }
+
+    #body-temp {
+      margin: 1rem;
+      grid-area: 1 / 1 / 2 / 3;
+    }
+
+    #heart-rate {
+      margin: 1rem;
+      grid-area: 2 / 1 / 3 / 3;
+    }
+
+    img {
+      width: 100%;
+    }
+
+    p {
+      padding-bottom: 0.5rem;
+    }
+
+    #page1 {
+      margin: auto;
+      align-content: center;
+      transform: rotate(180deg);
+      grid-area: 3 / 1 / 4 / 3;
+    }
+
+    .stat-item {
+      margin: 1rem;
+    }
+
+    #toilet {
+      grid-area: 1 / 1 / 2 / 2;
+    }
+
+    #words {
+      grid-area: 1 / 2 / 2 / 3;
+      position: relative;
+
+      #tooltiptext {
+        visibility: hidden;
+        width: 15rem;
+        background-color: black;
+        color: #fff;
+        text-align: center;
+        border-radius: 0.5rem;
+        padding: 0.5rem 0;
+        position: absolute;
+        z-index: 1;
+        top: 40%;
+        left: 25%;
+        margin-left: -25%;
+      }
+
+      :hover #tooltiptext {
+        visibility: visible;
+      }
+
+      #tooltiptext::after {
+        content: "";
+        position: absolute;
+        bottom: 100%;
+        left: 50%;
+        margin-left: -0.5rem;
+        border-width: 0.5rem;
+        border-style: solid;
+        border-color: transparent transparent black transparent;
+      }
+    }
+
+    #nutrition {
+      grid-area: 2 / 1 / 3 / 2;
+    }
+
+    #physical {
+      grid-area: 2 / 2 / 3 / 3;
+    }
+
+    #page2 {
+      margin: auto;
+      align-content: center;
+      grid-area: 3 / 1 / 4 / 3;
+    }
+  }
+
+  #basic-info {
+    grid-area: basic-info;
+    display: grid;
+    grid-template:
+            "image information-block" 50%
+            "remove information-block" 40%
+      / 10% 35%;
+    grid-gap: 1rem;
+
+    div {
+      @include constants.rounded-div(gray, 1rem, 0);
+      grid-area: information-block;
+    }
+
+    div.hidden {
+      @include constants.hidden();
+    }
+
+    span {
+      grid-area: remove;
+      justify-self: center;
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+
+    img {
+      grid-area: image;
+      max-width: 100%;
+      width: 100%;
+      max-height: 100%;
+      border-radius: 1rem;
+      object-fit: cover;
+    }
+
+    .material-symbols-outlined {
+      font-size: 2.5rem;
+    }
+  }
+
+  #special-info {
+    grid-area: special-info;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    span:hover {
+        cursor: pointer;
+    }
+
+    .toggle-view {
+      font-size: 2.5rem;
+    }
+  }
+
+  #timeline {
+    grid-area: timeline;
+    display: flex;
+
+    div {
+      @include constants.rounded-div(inherit, 1rem, 0);
+    }
+
+    #event-info {
+      @include constants.rounded-div(gray, 1rem, 0);
+      width: 50%;
+    }
+
+    h3 {
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+
+    #line-chart-container {
+      width: 20vw;
+      max-height: 70vh;
+      overflow: scroll;
+    }
+  }
+}
+
+

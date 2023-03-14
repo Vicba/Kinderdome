@@ -1,0 +1,107 @@
+@use 'constants';
+
+body {
+  @include constants.background();
+  font-family: constants.$default-font;
+  max-height: 100vh;
+
+  .error-message {
+    @include constants.error-message();
+  }
+}
+
+header {
+  @include constants.header();
+
+  nav {
+    @include constants.nav-bar();
+
+    input {
+      @include constants.search-bar();
+    }
+  }
+}
+
+
+#children {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5%;
+  justify-content: center;
+
+  div {
+    @include constants.rounded-div(lightgray, 0, 1rem 0 1rem 0);
+    max-width: 20%;
+    width: 15%;
+
+    img {
+      border-radius: 1rem;
+      width: 100%;
+      height: 17rem;
+      object-fit: cover;
+    }
+
+    h2 {
+      border: none;
+      text-align: center;
+      padding-bottom: 0.5rem;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+  }
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+// START POPUP
+.overlay {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.25);
+  display: none;
+}
+
+#popup {
+  @include constants.rounded-div(lightgray, 2rem, 12% auto);
+  font-size: 3rem;
+  text-align: center;
+  width: 35%;
+
+  .dialog-option {
+    border-radius: 100%;
+    padding: 0.75rem;
+    margin: 2rem 2rem 0 2rem;
+    font-size: 2rem;
+
+    :hover {
+      cursor: pointer;
+    }
+  }
+
+  #confirm {
+    background-color: green;
+  }
+
+  #cancel {
+    background-color: red;
+  }
+}
+
+.hide {
+  display: none;
+}
+
+.show-popup {
+  display: block;
+}
+
+// END POPUP
